@@ -1,0 +1,239 @@
+\documentclass[xcolor=pdftex,dvipsnames]{beamer}
+\usepackage{beamerthemesplit,hyperref}
+\usetheme{default}
+\usecolortheme{dove}
+
+
+\usepackage{listings,multirow,amssymb,amsmath,cancel,float,color}
+\usepackage{pgfpages}
+
+\graphicspath{}
+
+%\setbeamertemplate{navigation symbols}{} 
+%\setbeamertemplate{footline}[text line]{SUSY on the Lattice}
+
+\mode<presentation>
+\title[]{Cython for HPC}
+\author[Niall Moran]{Niall Moran}
+\date{July, 2016}
+%\titlegraphic{\includegraphics[width=2.5cm]{NUIM-Logo-Main.pdf}}
+\setbeamerfont{citation_font}{size=\tiny}
+\setbeamerfont{smallerfont}{size=\small}
+
+%\setbeameroption{show notes on second screen}
+%\setbeameroption{show notes}
+%\xdefinecolor{abricot}{named}{Apricot}
+
+\newcommand{\ua}{\uparrow}
+\newcommand{\da}{\downarrow}
+\newcommand{\dg}{\dagger}
+\newcommand{\nin}{\noindent}
+\newcommand{\non}{\nonumber}
+\newcommand{\pd}{\partial}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{align}}
+\newcommand{\ea}{\end{align}}
+\newcommand{\braket}[2]{\langle #1|#2\rangle}
+\newcommand{\ket}[1]{     |    \,    #1    \rangle}
+\newcommand{\bra}[1]{  \langle #1  \,  |} 
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\q}{{\bf q}}
+\newcommand{\anb}{b^{\phantom\dagger}}
+\newcommand{\crb}{b^\dagger}
+\newcommand{\anc}{c^{\phantom\dagger}}
+\newcommand{\crc}{c^\dagger}
+\newcommand{\bi}{{\boldsymbol{i}}}
+\newcommand{\bj}{{\boldsymbol{j}}}
+\newcommand{\bk}{{\boldsymbol{k}}}
+\newcommand{\bl}{{\boldsymbol{l}}}
+\newcommand{\bx}{{\boldsymbol{x}}}
+\newcommand{\bq}{{\boldsymbol{q}}}
+\newcommand{\bp}{{\boldsymbol{p}}}
+\newcommand{\bn}{{\boldsymbol{n}}}
+\newcommand{\bs}[1]{ \boldsymbol{#1} }
+\newcommand{\abs}[1]{|#1|}
+
+\begin{document}
+
+
+\frame{\titlepage
+}
+
+
+\frame{
+	\frametitle{Overview}
+	\begin{itemize}
+		\item Motivation
+		\item  {\color{Gray!30} Why (not) Python?}
+		\item  {\color{Gray!30} Cython}
+		\item  {\color{Gray!30} Examples}
+	\end{itemize}
+	\note{Overview slide}
+}
+
+\frame{
+	\frametitle{Hall Effect}
+  \begin{columns}
+    \begin{column}{6cm}
+      \begin{itemize}
+        \item Edwin Hall (date)
+        \item Magnetic field sensor
+      \end{itemize}
+      image of experimental setup\\
+      image of joystick
+    \end{column}
+    \begin{column}{6cm}
+      plot of conductivity with field
+    \end{column}
+  \end{columns}
+	\note{Overview slide}
+}
+
+\frame{
+	\frametitle{Quantum Hall Effect}
+  \begin{columns}
+    \begin{column}{6cm}
+      \begin{itemize}
+        \item Pffifer et. al. (date)
+        \item Stronger field, purer samples
+        \item Used for ohm standard
+        \item Single particle QM
+      \end{itemize}
+      experimental photo\\
+      image of joystick
+    \end{column}
+    \begin{column}{6cm}
+      plot of conductivity with field showing plateaus at
+      integer filling
+    \end{column}
+  \end{columns}
+	\note{Overview slide}
+}
+
+\frame{
+	\frametitle{Fractional Quantum Hall Effect}
+  \begin{columns}
+    \begin{column}{6cm}
+      \begin{itemize}
+        \item Pffifer et. al. (date)
+        \item Stronger field, purer samples again
+        \item Unexplained exotic phases
+        \item Still of interest
+      \end{itemize}
+      experimental photo\\
+    \end{column}
+    \begin{column}{6cm}
+      plot of conductivity with field showing plateaus at
+      fractional filling and experimental plot.
+    \end{column}
+  \end{columns}
+	\note{Overview slide}
+}
+
+\frame{
+  \frametitle{Model}
+  \begin{itemize}
+    \item Effective one dimensional model
+    \item State is made up of (complex) weight in each configuration
+  \end{itemize}
+  picture of boxes with balls\\
+
+  equation showing exponential scaling\\
+}
+
+\frame{
+  \frametitle{Hopeless scaling}
+  \begin{columns}
+    \begin{column}{6cm}
+      image of laptop\\
+      10-12 electrons
+    \end{column}
+    \begin{column}{6cm}
+      image of supercomputer\\
+      16-18 electrons
+    \end{column}
+    \begin{column}{6cm}
+    \end{column}
+  \end{columns}
+}
+
+
+\frame{
+  \frametitle{Why use Python}
+  \begin{itemize}
+    \item Fast development, debugging
+    \item Amount of packages available
+    \item Plotting
+    \item Flexibility
+    \item Good glue
+  \end{itemize}
+}
+
+
+\frame{
+  \frametitle{Why not use Python}
+  \begin{itemize}
+    \item Not always available
+    \item Slow
+    \item GIL
+    \item Resource usage
+  \end{itemize}
+}
+
+
+\frame{
+  \frametitle{Cython}
+  \begin{itemize}
+    \item Mix C and python
+    \item Best of both
+    \item Good for wrapping existing C code
+    \item Two language problem
+  \end{itemize}
+}
+
+
+\frame{
+  \frametitle{Usage}
+  Figure of pipeline
+}
+
+
+\frame{
+  \frametitle{Example - setup.py}
+  Show setup.py and commands
+}
+
+
+
+\frame{
+  \frametitle{Example - jupyter}
+  Show cython magic in the browser
+}
+
+
+\frame{
+  \frametitle{Benchmark}
+  Show example and compare to python
+}
+
+
+\frame{
+  \frametitle{Optimising}
+  Show example and compare to python
+}
+
+
+\frame{
+  \frametitle{Further reading}
+  \usebeamerfont{smallerfont}
+  \begin{itemize}
+    \item D. S. Seljebotn, \textit{``Fast Numerical Computation with Cython''}, SciPy 2009.{\usebeamerfont{citation_font} (\url{http://conference.scipy.org/proceedings/SciPy2009/paper\_2/full\_text.pdf})}
+  \end{itemize}
+}
+
+
+\end{document}
