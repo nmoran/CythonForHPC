@@ -1,0 +1,40 @@
+Wed Jul 13 10:54:49 2016 Starting job with paramemters:
+-----------------------------------------
+real: False
+add_three_body: 0.0
+save_ascii: False
+prefix: 
+no_basis_write: True
+save_hamiltonian: False
+pseudopotentials: None
+bosonic: False
+id: 
+show_matrix: True
+max_iterations: 1000
+particles: 8
+silent: False
+commomentum: -1
+basis: 
+nbr_states: 5
+magnetic_length: 1.0
+thickness: 0.0
+tau2: 1.0
+state: 
+tau1: 0.0
+inversion_sector: -1
+initial_state: 
+eigenstate: False
+momentum: 0
+write_coefficients: False
+eps_tol: 1e-15
+nbr_eigvals: 5
+landau_level: 0
+append_pseudopotentials: False
+exempt_cont_orbitals: -1
+nbrflux: 24
+interaction: Coulomb
+coefficients_only: False
+shift: 100.0
+output_fock_coefficients: False
+mpmath: False
+lx: 0.0
